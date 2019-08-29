@@ -1,9 +1,8 @@
 const Type = require('../models/Type');
 
 module.exports = {
-
 	async index(req, res) {
-		const result = Type.get();
+		const result = await Type.get();
 		return res.json(result);
 	},
 

@@ -7,6 +7,7 @@ const routes = express.Router();
 routes.get('/group', GroupController.index);
 routes.post('/group', GroupController.store);
 
+routes.get('/type', TipoController.index);
 routes.post('/type', TipoController.store);
 
 module.exports = routes;
