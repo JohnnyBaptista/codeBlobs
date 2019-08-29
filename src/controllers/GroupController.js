@@ -11,6 +11,6 @@ module.exports = {
 
 		const group = await Group.create(name, type);
 
-		return res.json(group);
+		return res.json(group); 
 	}
 }
