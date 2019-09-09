@@ -3,16 +3,16 @@ const connection = require('../database')();
 
 const get = () => {
     return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM member', (error, result) => {
+        connection.query('SELECT * FROM period', (error, result) => {
             if(error) reject(error);
             resolve(result);
         });
     });
 }
 
-const create = (name, description, group) => {
-    let sql = 'INSERT INTO member SET member.member_id = NULL, member.member_name = ?, member.member_description = ?, member.group_id = (SELECT group_id FROM groups WHERE groups.group_id = ?)';
-    const params = [name, description, group];
+const create = (name, time) => {
+    let sql = 'INSERT INTO period SET period.period_name = ?, period.period_h = ?';
+    const params = [name, time];
     return new Promise((resolve, reject) => {
         connection.query(sql, params, (error, result) => {
             if(error) reject(error);
