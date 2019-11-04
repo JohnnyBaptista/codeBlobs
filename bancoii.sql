@@ -40,7 +40,8 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`att_id`, `member_id`, `meet_id`, `period_id`) VALUES
-(2, 7, NULL, 2);
+(1, 2, NULL, 2),
+(1, 3, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -59,10 +60,10 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`group_id`, `group_name`, `type_id`) VALUES
-(1, '0', 1),
-(2, 'corote de morango', 1),
-(3, 'joao', 1),
-(4, 'maria', 1);
+(1, 'RH', 1),
+(2, 'Mkt', 1),
+(3, 'Adm', 1),
+(4, 'Fin', 1);
 
 -- --------------------------------------------------------
 
@@ -94,12 +95,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_name`, `member_description`, `group_id`) VALUES
-(1, 'Carlos', 'fofo', NULL),
-(2, NULL, 'galã', 2),
-(4, NULL, 'galã', 2),
-(5, 'ricardo', 'alto', 1),
-(6, 'chand', 'galã', 2),
-(7, 'Lulindo', 'lindo', 1);
+(1, 'Carlos', 'Diretor', 1),
+(2, 'Marcos', 'Gerente', 2),
+(4, 'Maria', 'Secretária', 2),
+(5, 'Talita', 'Diretora', 3),
+(6, 'João', 'Membro', 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `type` (
 --
 
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
-(1, 'corote de morango');
+(1, 'Tipo1');
 
 --
 -- Índices para tabelas despejadas
