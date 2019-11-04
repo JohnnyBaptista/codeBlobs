@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `attendance`
 --
 
+CREATE DATABASE bancoii;
+
 CREATE TABLE `attendance` (
   `att_id` int(11) NOT NULL,
   `member_id` int(11) DEFAULT NULL,

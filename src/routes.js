@@ -25,5 +25,6 @@ routes.post('/period', PeriodController.store);
 
 routes.get('/attendance', AttendanceController.index);
 routes.post('/attendance', AttendanceController.store);
+routes.get('/attendance/:group_id', AttendanceController.att);
 
 module.exports = routes;
