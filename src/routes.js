@@ -16,6 +16,7 @@ routes.post('/type', TipoController.store);
 
 routes.get('/member', MemberController.index);
 routes.post('/member', MemberController.store);
+routes.patch('/upd', MemberController.update);
 
 routes.get('/meet', MeetController.index);
 routes.post('/meet', MeetController.store);

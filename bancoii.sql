@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Set-2019 às 21:50
+-- Tempo de geração: 05-Nov-2019 às 16:29
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.8
 
@@ -21,6 +21,41 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bancoii`
 --
+
+DELIMITER $$
+--
+-- Procedimentos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DEL_MEMBER` (IN `v_member_id` INT(11))  BEGIN
+	IF((v_member_id) > 0 && (v_member_id != '')) THEN
+    	DELETE FROM member WHERE member_id = v_member_id;
+	ELSE 
+    	SELECT 'Identificador não informado' AS Msg;
+   	END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INS_MEMBER` (IN `member_name` VARCHAR(60), IN `member_description` VARCHAR(255), IN `group_id` INT(11))  BEGIN
+
+  	IF (member_name != '')  THEN
+
+    	INSERT INTO member(member_name, member_description, group_id)
+
+    	VALUES (member_name, member_description, group_id);
+	ELSE 
+    	SELECT 'Nome do membro deve ser fornecido' AS Msg;
+    END IF;
+
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPD_MEMBER` (IN `v_member_id` INT(11), IN `v_member_name` VARCHAR(65), IN `v_member_description` VARCHAR(255), IN `v_group_id` INT(11))  BEGIN
+	IF(v_member_id != '') THEN
+    	UPDATE member SET member_name = v_member_name, member_description = v_member_description, group_id = v_group_id WHERE member_id = v_member_id;
+	ELSE 
+    	SELECT 'Membro não existe' AS Msg;
+   	END IF;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -40,8 +75,7 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`att_id`, `member_id`, `meet_id`, `period_id`) VALUES
-(1, 2, NULL, 2),
-(1, 3, NULL, 1);
+(2, 7, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -60,10 +94,10 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`group_id`, `group_name`, `type_id`) VALUES
-(1, 'RH', 1),
-(2, 'Mkt', 1),
-(3, 'Adm', 1),
-(4, 'Fin', 1);
+(1, '0', 1),
+(2, 'corote de morango', 1),
+(3, 'joao', 1),
+(4, 'maria', 1);
 
 -- --------------------------------------------------------
 
@@ -95,11 +129,14 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_name`, `member_description`, `group_id`) VALUES
-(1, 'Carlos', 'Diretor', 1),
-(2, 'Marcos', 'Gerente', 2),
-(4, 'Maria', 'Secretária', 2),
-(5, 'Talita', 'Diretora', 3),
-(6, 'João', 'Membro', 1);
+(1, 'Tiago', 'Aluno', 2),
+(2, 'kaka', 'Aluno', 2),
+(4, 'Robson', 'Professor', 2),
+(5, 'Ricardo', 'Aluno', 1),
+(6, 'Maria', 'Aluna', 2),
+(7, 'Lulindo', 'Diretor', 2),
+(8, 'Carlos', 'Aluno', 1),
+(9, 'Alan Turing', 'Professor', 2);
 
 -- --------------------------------------------------------
 
@@ -138,7 +175,7 @@ CREATE TABLE `type` (
 --
 
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
-(1, 'Tipo1');
+(1, 'corote de morango');
 
 --
 -- Índices para tabelas despejadas
@@ -212,7 +249,7 @@ ALTER TABLE `meet`
 -- AUTO_INCREMENT de tabela `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `period`
