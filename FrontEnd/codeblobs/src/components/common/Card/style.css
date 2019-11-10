@@ -1,0 +1,44 @@
+.card{
+    border: 1px solid #AAA  ;
+}
+
+.titles{
+    padding-left: 10px;
+    font-family: 'Monda';
+    color: #474747;
+    border-bottom: 1px solid #AAA;
+}
+
+.dados{
+    text-align: center;
+    font-family: 'Monda';
+    color: #474747;
+    font-size: 15px;
+}
+
+.dados .qnt{
+    font-size: 50px;
+    color: #474747;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+button{
+    display: flex;
+    border: none;
+    border: 1px solid #0892A5;
+    font-family: 'Monda';
+    font-weight: 400;
+    color: #0892A5;
+    padding: 8px 12px;
+    margin: 10px auto;
+    background-color: rgba( 0, 0, 0, 0 );
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+button:hover{
+    transition: .3s ease-in-out all;
+    font-weight: 700;
+    border: 2px solid #0892A5;
+}
