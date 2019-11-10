@@ -20,7 +20,38 @@ const create = (member, meet, period) => {
     });
 }
 
+const getMeetsMembers = async (group_id) => {
+    const groupMeetsSql = 'SELECT COUNT(*) as meetNumber FROM meet WHERE group_id = ?';
+    const memberSql = 'SELECT member_id FROM member WHERE group_id = ?';
+    const groupMeets = new Promise((resolve, reject) => {
+        connection.query(groupMeetsSql, group_id, (error, result) => {
+            if(error) reject(error);
+            resolve(result);
+        });
+    });
+    const members = new Promise((resolve, reject) => {
+        connection.query(memberSql, group_id, (error, result) => {
+            if(error) reject(error);
+            resolve(result);
+        });
+    });
+    const dataObj = await Promise.all([groupMeets, members]);
+    return dataObj;
+}
+
+const getMemberAttendenceNumber = (member_id) => {
+    const sql = 'SELECT COUNT(*) AS att FROM attendance WHERE member_id = ?';
+    return new Promise ((resolve, reject) => {
+        connection.query(sql, member_id, (error, result) => {
+            if(error) reject(error);
+            resolve(result);
+        });
+    });
+} 
+
 module.exports = {
     get,
-    create
+    create,
+    getMeetsMembers,
+    getMemberAttendenceNumber
 }
