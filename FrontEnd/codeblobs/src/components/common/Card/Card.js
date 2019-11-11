@@ -7,8 +7,8 @@ const Card = props => {
   return (
     <Col md={3} className="card">
       <div className="titles">
-        <h4>Grupo x - Corote de Saboar</h4>
-        <h5>Tipo - Grupo de Estudos</h5>
+        <h4>{props.name}</h4>
+        <h5>{props.type}</h5>
       </div>
       <div className="dados">
         <p>Dados</p>

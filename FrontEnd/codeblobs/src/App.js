@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Container, Row } from "react-grid-system";
 
-import Groups from './views/Groups';
+import Groups from "./views/Groups";
 
 function App() {
   return (
-    <div className="App">
-      <Groups />
-    </div>
+    <Container fluid>
+      <Row>
+        <Groups />
+      </Row>
+    </Container>
   );
 }
 
