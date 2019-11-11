@@ -9,7 +9,7 @@ const AppRoute = props => {
     <Router>
       <Switch>
         <Route exact path="/" component={Groups} />
-        <Route exact path="/group" component={GroupsTable} />
+        <Route exact path="/group/:group_id" component={GroupsTable} />
       </Switch>
     </Router>
   );
