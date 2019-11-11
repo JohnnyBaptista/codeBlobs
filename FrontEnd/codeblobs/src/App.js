@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-grid-system";
 
-import Groups from "./views/Groups";
+import Groups from "./views/Groups/Groups";
 
 function App() {
   return (

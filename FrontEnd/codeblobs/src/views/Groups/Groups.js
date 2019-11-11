@@ -1,8 +1,7 @@
 import React from "react";
-import { Row } from "react-grid-system";
 
-import { Card } from "../components/common";
-import { groupsAPI } from "../api";
+import { Card } from "../../components";
+import { groupsAPI } from "../../api";
 
 class Groups extends React.Component {
   constructor(props) {
