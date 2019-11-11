@@ -6,6 +6,7 @@ import Groups from "./views/Groups";
 function App() {
   return (
     <Container fluid>
+      <h1 style={{ textAlign: "center", fontFamily: "Monda" }}>Grupos</h1>
       <Row>
         <Groups />
       </Row>

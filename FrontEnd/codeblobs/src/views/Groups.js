@@ -30,11 +30,18 @@ class Groups extends React.Component {
   render() {
     const { groups } = this.state;
     if (groups !== undefined) {
-        console.log(groups);
       return (
         <>
           {groups.map((value, index) => {
-            return <Card key={index} members={10} meets={13} name={value.group_name} type={value.type_id} />;
+            return(
+                <Card
+                key={index}
+                members={10}
+                meets={13}
+                name={value.group_name}
+                type={value.type_id}
+                />
+            );
           })}
         </>
       );
