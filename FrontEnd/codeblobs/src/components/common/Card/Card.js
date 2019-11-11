@@ -12,9 +12,9 @@ const Card = props => {
       </div>
       <div className="dados">
         <p>Dados</p>
-        <span className="qnt">10</span>
+        <span className="qnt">{props.members}</span>
         <p>Membros</p>
-        <span className="qnt">13</span>
+        <span className="qnt">{props.meets}</span>
         <p>Reuniões Efetuadas</p>
       </div>
       <hr/>
