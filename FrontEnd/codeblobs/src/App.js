@@ -1,14 +1,14 @@
 import React from "react";
 import { Container, Row } from "react-grid-system";
 
-import Groups from "./views/Groups/Groups";
+import AppRoutes from './app.routes';
 
 function App() {
   return (
     <Container fluid>
       <h1 style={{ textAlign: "center", fontFamily: "Monda" }}>Grupos</h1>
       <Row>
-        <Groups />
+        <AppRoutes/>
       </Row>
     </Container>
   );
