@@ -7,14 +7,14 @@ const Card = props => {
   return (
     <Col md={3} className="card">
       <div className="titles">
-        <h4>Grupo x - Corote de Saboar</h4>
-        <h5>Tipo - Grupo de Estudos</h5>
+        <h4>{props.name}</h4>
+        <h5>{props.type}</h5>
       </div>
       <div className="dados">
         <p>Dados</p>
-        <span className="qnt">10</span>
+        <span className="qnt">{props.members}</span>
         <p>Membros</p>
-        <span className="qnt">13</span>
+        <span className="qnt">{props.meets}</span>
         <p>Reuniões Efetuadas</p>
       </div>
       <hr/>

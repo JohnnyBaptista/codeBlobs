@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
+import { Container, Row } from "react-grid-system";
 
-import Groups from './views/Groups';
+import AppRoutes from './app.routes';
 
 function App() {
   return (
-    <div className="App">
-      <Groups />
-    </div>
+    <Container fluid>
+      <h1 style={{ textAlign: "center", fontFamily: "Monda" }}>Grupos</h1>
+      <Row>
+        <AppRoutes/>
+      </Row>
+    </Container>
   );
 }
 
