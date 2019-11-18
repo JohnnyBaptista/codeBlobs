@@ -21,7 +21,17 @@ const create = (name, description, group) => {
     });
 }
 
+const upd = (id, name, description, group) => {
+    let sql = `CALL UPD_MEMBER(?, ?, ?, ?)`;
+    const params = [id, name, description, group];
+    connection.query(sql, params, (error, results, fields) => {
+        if(error) reject(error);
+        resolve(result);
+    });
+}
+
 module.exports = {
     get,
-    create
+    create,
+    upd
 }

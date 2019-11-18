@@ -12,6 +12,14 @@ module.exports = {
 		const result = await Type.create(type);
 
 		return res.json(result);
+	},
+	
+	async update(req, res) {
+		const {id, name} = req.body;
+
+		const result = await Type.upd(id, name);
+
+		return res.json(result);
 	}
 
 }

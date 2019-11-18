@@ -22,6 +22,41 @@ SET time_zone = "+00:00";
 -- Banco de dados: `bancoii`
 --
 
+DELIMITER $$
+--
+-- Procedimentos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DEL_MEMBER` (IN `v_member_id` INT(11))  BEGIN
+	IF((v_member_id) > 0 && (v_member_id != '')) THEN
+    	DELETE FROM member WHERE member_id = v_member_id;
+	ELSE 
+    	SELECT 'Identificador não informado' AS Msg;
+   	END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INS_MEMBER` (IN `member_name` VARCHAR(60), IN `member_description` VARCHAR(255), IN `group_id` INT(11))  BEGIN
+
+  	IF (member_name != '')  THEN
+
+    	INSERT INTO member(member_name, member_description, group_id)
+
+    	VALUES (member_name, member_description, group_id);
+	ELSE 
+    	SELECT 'Nome do membro deve ser fornecido' AS Msg;
+    END IF;
+
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPD_MEMBER` (IN `v_member_id` INT(11), IN `v_member_name` VARCHAR(65), IN `v_member_description` VARCHAR(255), IN `v_group_id` INT(11))  BEGIN
+	IF(v_member_id != '') THEN
+    	UPDATE member SET member_name = v_member_name, member_description = v_member_description, group_id = v_group_id WHERE member_id = v_member_id;
+	ELSE 
+    	SELECT 'Membro não existe' AS Msg;
+   	END IF;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -121,7 +156,6 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `member_name`, `member_description`, `group_id`) VALUES
-(8, 'Membro1-Grupo1', 'Membro1-Grupo1', 9),
 (9, 'Membro2-Grupo1', 'Membro2-Grupo1', 9),
 (10, 'Membro3-Grupo1', 'Membro3-Grupo1', 9),
 (11, 'Membro4-Grupo1', 'Membro4-Grupo1', 9),
@@ -137,6 +171,8 @@ INSERT INTO `member` (`member_id`, `member_name`, `member_description`, `group_i
 (21, 'Membro2-Grupo4', 'Membro2-Grupo4', 12),
 (22, 'Membro3-Grupo4', 'Membro3-Grupo4', 12),
 (23, 'Membro4-Grupo4', 'Membro4-Grupo4', 12);
+
+
 
 -- --------------------------------------------------------
 

@@ -12,6 +12,14 @@ module.exports = {
 		const result = await Member.create(name, description, group);
 
 		return res.json(result);
+	},
+
+	async update(req, res) {
+		const {id, name, description, group} = req.body;
+
+		const result = await Member.upd(id, name, description, group);
+
+		return res.json(result);
 	}
 
 }

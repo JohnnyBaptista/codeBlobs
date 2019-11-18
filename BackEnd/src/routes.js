@@ -1,6 +1,6 @@
 const express = require('express');
 const GroupController = require('./controllers/GroupController');
-const TipoController = require('./controllers/TypeController');
+const TypeController = require('./controllers/TypeController');
 const MemberController = require('./controllers/MemberController');
 const MeetController = require('./controllers/MeetController');
 const PeriodController = require('./controllers/PeriodController');
@@ -11,11 +11,13 @@ const routes = express.Router();
 routes.get('/groups', GroupController.index);
 routes.post('/groups', GroupController.store);
 
-routes.get('/type', TipoController.index);
-routes.post('/type', TipoController.store);
+routes.get('/type', TypeController.index);
+routes.post('/type', TypeController.store);
+routes.patch('/type', TypeController.update);
 
 routes.get('/member', MemberController.index);
 routes.post('/member', MemberController.store);
+routes.patch('/member', MemberController.update);
 
 routes.get('/meet', MeetController.index);
 routes.post('/meet', MeetController.store);
