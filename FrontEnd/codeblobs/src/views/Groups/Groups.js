@@ -39,6 +39,7 @@ class Groups extends React.Component {
                 meets={13}
                 name={value.group_name}
                 type={value.type_id}
+                id={value.group_id}
                 />
             );
           })}

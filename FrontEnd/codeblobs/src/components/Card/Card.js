@@ -4,6 +4,7 @@ import { Col } from "react-grid-system";
 import "./style.css";
 
 const Card = props => {
+  const uri = `/group/${props.id}`
   return (
     <Col md={3} className="card">
       <div className="titles">
@@ -18,7 +19,7 @@ const Card = props => {
         <p>Reuniões Efetuadas</p>
       </div>
       <hr/>
-      <button>Ver mais</button>
+      <button><a href={uri} >Ver mais</a></button>
     </Col>
   );
 };

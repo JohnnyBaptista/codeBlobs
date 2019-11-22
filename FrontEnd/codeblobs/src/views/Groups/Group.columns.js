@@ -1,17 +1,15 @@
 
-const columns = () => {
-  return [
-    {
-      title: 'Nome',
-      dataIndex: 'nome',
-      key: 'nome'
-    },
-    {
-      title: 'Frequência',
-      dataIndex: 'freq',
-      key: 'freq'
-    },
-  ];
-}
+const columns =[
+  {
+    title: 'Nome',
+    dataIndex: 'nome',
+    key: 1
+  },
+  {
+    title: 'Frequência',
+    dataIndex: 'freq',
+    key: 2
+  },
+];
 
 export default columns;
