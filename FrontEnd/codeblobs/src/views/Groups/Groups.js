@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Card } from "../../components";
 import { groupsAPI } from "../../api";
 
-import "./styles/group.css";
+import "../../components/Card/style.css";
+import { Row } from "react-grid-system";
 
 class Groups extends React.Component {
   constructor(props) {
@@ -30,14 +30,33 @@ class Groups extends React.Component {
 
   render() {
     const { groups } = this.state;
+    console.log({ groups });
     if (groups !== undefined) {
       return (
-        <Card 
-          groupName="Teste"
-          type_name="Corote de sabor"
-          meets={15}
-          members={25}
-        />
+        <div className="main-container">
+          <ul>
+            {groups.map((group, index) => {
+              return (
+                <li>
+                  <footer>
+                    <div className="header">
+                      <p className="name">{group.group_name}</p>
+                      <p className="type">{group.type_name}</p>
+                    </div>
+                    <div className="information">
+                      <strong>Dados do grupo</strong>
+                      <p className="numData">18</p>
+                      <p className="data">Membros</p>
+                      <p className="numData">13</p>
+                      <p className="data">Reuniões Efetuadas</p>
+                    </div>
+                    <button>Ver Mais</button>
+                  </footer>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       );
     }
   }
