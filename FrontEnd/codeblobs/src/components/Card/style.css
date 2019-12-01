@@ -1,34 +1,67 @@
-.card{
-    border: 1px solid #AAA  ;
-    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card:hover{
-    box-shadow: 4px 4px 5px rgba( 0, 0, 0, 0.6 );
-    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.titles{
-    padding-left: 10px;
-    font-family: 'Monda';
-    color: #474747;
-    border-bottom: 1px solid #AAA;
-}
-
-.dados{
+.main-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 0;
     text-align: center;
+  }
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding-left: 0;
+  }
+  li {
+    border: 1px solid #aaaaaa;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  img {
+    max-width: 100%;
+  }
+  footer {
+    flex: 1;
+    padding: 0 10px;
+  }
+  p {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+  }
+  strong {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .information {
+    display: flex;
     font-family: 'Monda';
+    margin-top: 10px;
     color: #474747;
+  }
+  .information p {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .information .data {
+    font-family: "Monda";
     font-size: 15px;
-}
-
-.dados .qnt{
-    font-size: 50px;
-    color: #474747;
-    font-family: 'Montserrat';
+  }
+  .information .numData {
+    font-family: "Montserrat";
     font-weight: 300;
-}
-
+    text-align: center;
+    font-size: 30px;
+  }
+  .header{
+    font-family: "Monda";
+    color: #474747;
+    font-weight: 700;
+    padding: 16px 10px;
+    border-bottom: 1px solid #cecece;
+  }
+  
 button{
     display: flex;
     border: none;

@@ -3,6 +3,8 @@ import React from "react";
 import { Card } from "../../components";
 import { groupsAPI } from "../../api";
 
+import "./styles/group.css";
+
 class Groups extends React.Component {
   constructor(props) {
     super(props);
@@ -30,20 +32,12 @@ class Groups extends React.Component {
     const { groups } = this.state;
     if (groups !== undefined) {
       return (
-        <>
-          {groups.map((value, index) => {
-            return(
-                <Card
-                key={index}
-                members={10}
-                meets={13}
-                name={value.group_name}
-                type={value.type_id}
-                id={value.group_id}
-                />
-            );
-          })}
-        </>
+        <Card 
+          groupName="Teste"
+          type_name="Corote de sabor"
+          meets={15}
+          members={25}
+        />
       );
     }
   }
