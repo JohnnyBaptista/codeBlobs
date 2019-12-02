@@ -4,6 +4,7 @@ import { groupsAPI } from "../../api";
 
 import "../../components/Card/style.css";
 import { Row } from "react-grid-system";
+import { Button, Icon } from "antd";
 
 class Groups extends React.Component {
   constructor(props) {
@@ -33,30 +34,42 @@ class Groups extends React.Component {
     console.log({ groups });
     if (groups !== undefined) {
       return (
-        <div className="main-container">
-          <ul>
-            {groups.map((group, index) => {
-              return (
-                <li>
-                  <footer>
-                    <div className="header">
-                      <p className="name">{group.group_name}</p>
-                      <p className="type">{group.type_name}</p>
-                    </div>
-                    <div className="information">
-                      <strong>Dados do grupo</strong>
-                      <p className="numData">18</p>
-                      <p className="data">Membros</p>
-                      <p className="numData">13</p>
-                      <p className="data">Reuniões Efetuadas</p>
-                    </div>
-                    <button>Ver Mais</button>
-                  </footer>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <>
+          <div className="new">
+            <Button type="primary">
+              <Icon
+                type="plus-circle"
+                theme="filled"
+                style={{ color: "#fff" }}
+              />
+              Novo grupo
+            </Button>
+          </div>
+          <div className="main-container">
+            <ul>
+              {groups.map((group, index) => {
+                return (
+                  <li>
+                    <footer>
+                      <div className="header">
+                        <p className="name">{group.group_name}</p>
+                        <p className="type">{group.type_name}</p>
+                      </div>
+                      <div className="information">
+                        <strong>Dados do grupo</strong>
+                        <p className="numData">18</p>
+                        <p className="data">Membros</p>
+                        <p className="numData">13</p>
+                        <p className="data">Reuniões Efetuadas</p>
+                      </div>
+                      <button className="btn">Ver Mais</button>
+                    </footer>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </>
       );
     }
   }
