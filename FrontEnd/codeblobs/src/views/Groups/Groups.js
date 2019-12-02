@@ -1,10 +1,11 @@
 import React from "react";
 
+import { Row } from "react-grid-system";
+import { Button, Icon } from "antd";
+
 import { groupsAPI } from "../../api";
 
 import "../../components/Card/style.css";
-import { Row } from "react-grid-system";
-import { Button, Icon } from "antd";
 
 class Groups extends React.Component {
   constructor(props) {
