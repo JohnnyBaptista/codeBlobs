@@ -21,25 +21,22 @@ class GroupForm extends Component {
       if (!err) {
         let states = this.state.types;
         let id = null;
-        for(let types of states){
-          for(let type of types){
-            if(type.type_name === values.type){
-              id = type.type_id;
-              break;
-            }
+        for (let types of states) {
+          if(types.type_name === values.type){
+            id = types.type_id;
           }
         }
-        if(id === null) {
-          message.error('Tipo não encontrado!')
+        if (id === null) {
+          message.error("Tipo não encontrado!");
           return;
-        };
+        }
         const obj = {
           name: values.name,
           type: id
         };
         const response = await groupsAPI.post(obj);
-        console.log({response});
-        message.success('Grupo cadastrado com sucesso!');
+        console.log({ response });
+        message.success("Grupo cadastrado com sucesso!");
       }
     });
   };
@@ -52,7 +49,7 @@ class GroupForm extends Component {
     let { types } = this.state;
     try {
       const response = await typeAPI.list();
-      types.push(response.data);
+      types = response.data;
       this.setState({
         types
       });
@@ -69,7 +66,7 @@ class GroupForm extends Component {
     const { getFieldDecorator } = this.props.form;
     const { types } = this.state;
     return (
-      <Form layout="inline" onSubmit={this.handleSubmit}>
+      <Form layout="horizontal" onSubmit={this.handleSubmit}>
         <Form.Item>
           {getFieldDecorator("name", {
             rules: [{ required: true, message: "Entre com o nome do grupo" }]
@@ -84,14 +81,12 @@ class GroupForm extends Component {
           {getFieldDecorator("type", {
             rules: [{ required: true, message: "Escolha o tipo" }]
           })(
-            <Select style={{ width: 200 }} key={1} onChange={this.handleChange}>
+            <Select style={{ width: 200 }} key={1} onChange={this.handleChange} style={{display: 'flex', flexDirection: 'column'}}>
               {types.map((type, index) => {
                 return (
-                  <Option
-                    value={type[index].type_name}
-                    key={type[index].type_id}
-                  >
-                    {type[index].type_name}
+                  <Option value={type.type_name} key={type.type_id} >
+                    {" "}
+                    {type.type_name}{" "}
                   </Option>
                 );
               })}

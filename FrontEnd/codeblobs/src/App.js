@@ -6,7 +6,8 @@ import AppRoutes from './app.routes';
 function App() {
   return (
     <Container fluid>
-      <h1 style={{ textAlign: "center", fontFamily: "Monda" }}>Grupos</h1>
+      <h1 style={{ textAlign: "center", fontFamily: "Monda" }}>Codeblobs</h1>
+
       <Row>
         <AppRoutes/>
       </Row>
