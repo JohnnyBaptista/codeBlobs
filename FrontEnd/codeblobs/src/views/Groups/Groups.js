@@ -27,10 +27,12 @@ class Groups extends React.Component {
         nameGroup: info[i][0].nameGroup,
         nameType: info[i][0].nameType,
         qntMeets: info[i][0].qntMeets,
-        memberNumber: members[i][0].memberNumber
+        memberNumber: members[i][0].memberNumber,
+        group_id: info[i][0].group_id
       }
       groups.push(obj);
     }
+    console.log(groups);
     this.setState({
       groups
     });
