@@ -2,11 +2,11 @@ import React from "react";
 
 import columns from "./Group.columns";
 import { Table } from "../../components";
-import { groupsAPI } from '../../api'
+import { groupsAPI, memberAPI } from '../../api'
  
 import "./styles/group.css";
 
-const data = [
+const datas = [
   {
     key: "1",
     nome: "Nome 1",
@@ -28,8 +28,10 @@ class GroupsTable extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      groupInfo: {}
+      groupInfo: {},
+      members: []
     }
+    this.loadInfo = this.loadInfo.bind(this);
   }
 
 
@@ -40,11 +42,30 @@ class GroupsTable extends React.Component {
     this.setState({
       groupInfo: data
     });
-    console.log(this.state.groupInfo);
+  }
+
+  loadMembers = async () => {
+    const { group_id } = this.props.match.params;
+    const response = await memberAPI.list(group_id);
+    const members = response.data;
+    const data = [];
+    for(let member of members){
+      let obj = {
+        key: member.member_id,
+        nome: member.member_name,
+        freq: '50%'
+      }
+      data.push(obj);
+    }
+    this.setState({
+      members: data
+    });
+    console.log(this.state)
   }
 
   componentDidMount(){
     this.loadInfo()
+    this.loadMembers();
   }
 
   render() {
@@ -55,7 +76,7 @@ class GroupsTable extends React.Component {
           <h1>{this.state.groupInfo.group_type}</h1>
         </div>
         <div>
-          <Table dataSource={data} columns={columns} />
+          <Table dataSource={this.state.members} columns={columns} />
         </div>
       </>
     );
